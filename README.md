@@ -17,7 +17,7 @@ Nepi Jano! je doplnok pre webove prehliadace Google Chrome a Mozilla Firefox umo
 
 ### Mozilla Firefox
 
-* Doplnok pre Firefox sa coskoro bude dat instalovat z oficialnej stranky Mozilla doplnkov.
+* [Doplnok pre Firefox sa instaluje z oficialnej stranky Mozilla doplnkov](https://addons.mozilla.org/sk/firefox/addon/nepi-jano/).
 
 ## Zoznam zmien
 
