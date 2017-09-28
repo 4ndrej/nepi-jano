@@ -3,7 +3,7 @@
  */
 var utils = {};
 
-utils.whitelist = ['#text', 'BR', 'H1', 'H2', 'H3', 'P', 'DIV', 'SPAN', 'STRONG', 'SMALL', 'BLOCKQUOTE', 'UL', 'OL', 'LI', 'A', 'IMG', 'BUTTON'];
+utils.whitelist = ['#text', 'A', 'ABBR', 'ADDRESS', 'AREA', 'ARTICLE', 'ASIDE', 'AUDIO', 'B', 'BDI', 'BDO', 'BLOCKQUOTE', 'BR', 'BUTTON', 'CAPTION', 'CITE', 'CODE', 'COL', 'COLGROUP', 'DATA', 'DATALIST', 'DD', 'DEL', 'DFN', 'DIV', 'DL', 'DT', 'EM', 'EMBED', 'FIELDSET', 'FIGCAPTION', 'FIGURE', 'FOOTER', 'FORM', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'HEADER', 'HR', 'I', 'IFRAME', 'IMG', 'INPUT', 'INS', 'KBD', 'KEYGEN', 'LABEL', 'LEGEND', 'LI', 'MAIN', 'MAP', 'MARK', 'METER', 'NAV', 'OBJECT', 'OL', 'OPTGROUP', 'OPTION', 'OUTPUT', 'P', 'PARAM', 'PRE', 'PROGRESS', 'Q', 'RB', 'RP', 'RT', 'RTC', 'RUBY', 'S', 'SAMP', 'SECTION', 'SELECT', 'SMALL', 'SOURCE', 'SPAN', 'STRONG', 'SUB', 'SUP', 'TABLE', 'TBODY', 'TD', 'TEXTAREA', 'TFOOT', 'TH', 'THEAD', 'TIME', 'TR', 'TRACK', 'U', 'UL', 'VAR', 'VIDEO', 'WBR'];
 
 /**
  * Remove elements from document using selector
@@ -46,10 +46,15 @@ utils.sanitizeContent = function(root, node) {
 			}
 			else {
 				element = document.createElement(child.nodeName);
-				element.className = child.className;
+				if (child.className.length > 0) {
+					element.className = child.className;
+				}
 
 				if (child.nodeName == 'A') {
 					element.href = child.href;
+				}
+				else if (child.nodeName == 'IFRAME') {
+					element.src = child.src.replace(/^\/\//, 'http://');
 				}
 				else if (child.nodeName == 'IMG') {
 					element.src = child.src.replace(/^http:/, 'https:');

@@ -1,1 +1,1 @@
-window.location = document.querySelector('web_url').textContent;
+window.location = document.querySelector('webUrl').textContent;
