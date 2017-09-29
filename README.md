@@ -10,7 +10,7 @@ Nepi Jano! je doplnok pre webove prehliadace Google Chrome a Mozilla Firefox umo
 
 ### Google Chrome
 
-* Rozsirenie pre Chrome sa coskoro bude dat instalovat z oficialnej stranky Chrome Store].
+* [Rozsirenie pre Chrome sa instaluje z oficialnej stranky Chrome Store](https://chrome.google.com/webstore/detail/nepi-jano/dmiebaglkdeebobffhbomapifjjjjakj).
 * Pripadne sa da nainstalovat manualne [stiahnutim z tejto stranky](https://github.com/viliampucik/nepi-jano/raw/master/releases/nepi-jano-4.1.chrome.crx),
 * otvorenim zalozky doplnkov kliknutim na menu *-> Nastavenia -> Rozsirenia*
 * a naslednym pretiahnutim stiahnuteho *.crx* suboru do spominanej zalozky.
