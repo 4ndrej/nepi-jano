@@ -72,6 +72,48 @@ utils.sanitizeContent = function(root, node) {
 }
 
 /**
+ * Replace the actual static image block with the real video
+ */
+utils.getArticleVideo = function(iosVideo, url) {
+	var request = new XMLHttpRequest();
+	request.iosVideo = iosVideo;
+	request.open('GET', url, true);
+	request.onload = function() {
+		if (request.status == 200) {
+			var image    = request.responseText.match(/<image>(http.*)<\/image>/)[1];
+			var location = request.responseText.match(/<location>(http.*)<\/location>/)[1];
+
+			var source = document.createElement('source');
+			source.setAttribute('src', location);
+
+			var video = document.createElement('video');
+			video.setAttribute('controls', 'controls');
+			video.setAttribute('width', 640);
+			video.setAttribute('height', 360);
+			video.setAttribute('poster', image);
+			video.appendChild(source);
+
+			// replace the static image block
+			request.iosVideo.innerHTML = '';
+			request.iosVideo.appendChild(video);
+		}
+	};
+	request.send();
+};
+
+/**
+ * Replace static images with real videos
+ */
+utils.getArticleVideos = function(html) {
+	var iosVideos = html.querySelectorAll('div.iosvideo');
+	var i = iosVideos.length;
+	while (i--) {
+		var iosVideoId = iosVideos[i].querySelector('a').href.match(/^https:\/\/artemis\.sme\.sk\/api\/ma\/v\/(\d+)/)[1];
+		utils.getArticleVideo(iosVideos[i], 'https://www.sme.sk/storm/mmdata_get.asp?id=' + iosVideoId);
+	}
+};
+
+/**
  * Get mobile version of the article
  */
 utils.getArticle = function(url) {
@@ -97,6 +139,9 @@ utils.getArticle = function(url) {
 					utils.sanitizeContent(html, doc.getElementsByTagName('article')[0]);
 				}
 			}
+
+			/* article videos */
+			utils.getArticleVideos(html);
 		}
 	};
 	request.send();

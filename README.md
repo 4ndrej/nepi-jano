@@ -1,7 +1,7 @@
 :star: Nepi Jano! opat funkcne! :) :star:
 ======
 
-Nepi Jano! 4.1
+Nepi Jano! 4.2
 ======
 
 Nepi Jano! je doplnok pre webove prehliadace Google Chrome a Mozilla Firefox umoznujuci bezplatne citanie platenych alias Piano clankov na [www.sme.sk](http://www.sme.sk). Staci si dane rozsirenie jednoducho nainstalovat z oficialnych stranok danych prehliadacov. Nasledne po otvoreni akehokolvek Piano clanku sa automaticky, v priebehu par sekund nacita jeho plna verzia.
@@ -11,7 +11,7 @@ Nepi Jano! je doplnok pre webove prehliadace Google Chrome a Mozilla Firefox umo
 ### Google Chrome
 
 * Rozsirenie pre Chrome sa coskoro bude dat instalovat z oficialnej stranky Chrome Store].
-* Pripadne sa da nainstalovat manualne [stiahnutim z tejto stranky](https://github.com/viliampucik/nepi-jano/raw/master/releases/nepi-jano-4.1.chrome.crx),
+* Pripadne sa da nainstalovat manualne [stiahnutim z tejto stranky](https://github.com/viliampucik/nepi-jano/raw/master/releases/nepi-jano-4.2.chrome.crx),
 * otvorenim zalozky doplnkov kliknutim na menu *-> Nastavenia -> Rozsirenia*
 * a naslednym pretiahnutim stiahnuteho *.crx* suboru do spominanej zalozky.
 
@@ -20,6 +20,10 @@ Nepi Jano! je doplnok pre webove prehliadace Google Chrome a Mozilla Firefox umo
 * [Doplnok pre Firefox sa instaluje z oficialnej stranky Mozilla doplnkov](https://addons.mozilla.org/sk/firefox/addon/nepi-jano/).
 
 ## Zoznam zmien
+
+#### 4.2
+
+* Opravene prehravania videi v clankoch, HD rozlisenie zatial podporavane len vo Firefoxe
 
 #### 4.1
 
