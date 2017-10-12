@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Nepi Jano!",
-	"version": "4.2",
+	"version": "4.3",
 	"description": "Read paid content on www.sme.sk",
 	"permissions": ["webRequest", "webRequestBlocking", "https://www.sme.sk/storm/*", "https://artemis.sme.sk/*"],
 	"content_scripts": [
@@ -12,10 +12,6 @@
 		{
 			"js": ["video.js"],
 			"matches": ["*://tv.sme.sk/v*"]
-		},
-		{
-			"js": ["xml.js"],
-			"matches": ["https://artemis.sme.sk/api/v2/article-header/*"]
 		}
 	],
 	"homepage_url": "https://github.com/viliampucik/nepi-jano",

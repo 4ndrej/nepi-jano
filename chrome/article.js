@@ -51,7 +51,8 @@ utils.sanitizeContent = function(root, node) {
 				}
 
 				if (child.nodeName == 'A') {
-					element.href = child.href;
+					var match = child.href.match(/^https:\/\/artemis\.sme\.sk\/api\/v2\/article-header\/(\d+).*/);
+					element.href = (match !== null && match.length >= 2) ? 'https://sme.sk/c/' + match[1] + '/' : child.href;
 				}
 				else if (child.nodeName == 'IFRAME') {
 					element.src = child.src.replace(/^\/\//, 'http://');
