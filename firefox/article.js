@@ -124,7 +124,13 @@ utils.getArticle = function(url) {
 		if (request.status == 200) {
 			var doc = (new DOMParser()).parseFromString(request.responseText, 'text/html');
 			doc = utils.removeSelector(doc, 'article > br:first-of-type');
+			doc = utils.removeSelector(doc, '.artemis-ad-position');
+			doc = utils.removeSelector(doc, '.premium-banner');
 			doc = utils.removeSelector(doc, '.button-bar');
+			var node = doc.getElementsByClassName('is-hidden')[0];
+			if (node) {
+				node.replaceWith(...node.childNodes);
+			}
 			if (document.querySelector('.perex')) {
 				doc = utils.removeSelector(doc, '.perex');
 			}
@@ -150,5 +156,5 @@ utils.getArticle = function(url) {
 };
 
 if (/\.sme\.sk\/c\/\d+\/.*/.test(document.location) && utils.isPianoArticle()) {
-	utils.getArticle('https://artemis.sme.sk/api/v2/article/' + utils.articleId() + '?mid=16&fullcont=1&noAdverts=0&nightmode=0');
+	utils.getArticle('https://artemis.sme.sk/api/v2/article/' + utils.articleId() + '?mid=0&fullcont=1&noAdverts=0&nightmode=0');
 }
